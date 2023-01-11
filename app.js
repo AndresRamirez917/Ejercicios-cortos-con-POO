@@ -124,33 +124,91 @@
 
 
 // EJEMPLO 6 PROTOTYPE
-function Person(name, lastname){
-    this.name = name,
-    this.lastname = lastname,
-    this.displayName = function(){
-        return `${this.name} ${this.lastname}`
+// function Person(name, lastname){
+//     this.name = name,
+//     this.lastname = lastname,
+//     this.displayName = function(){
+//         return `${this.name} ${this.lastname}`
+//     }
+// }
+
+// const luigi = new Person("Luigi", "Bros");
+// // CAMBIO DINAMICAMENTE DE PROPIEDADES EN OBJETOS
+// luigi.lastname = "Bronx"
+// const mario = new Person("Mario", "Bros");
+// console.log(luigi.displayName());
+// console.log(mario.displayName())
+
+// // CAMBIO DINAMICAMENTE DE FUNCIONES EN OBJETOS
+// luigi.greet = function(){
+//     console.log(`Hola ${this.name}, este método solo lo puedes usar tú`)
+// }
+
+// luigi.greet()
+
+// // SI QUIERO USAR EL MÉTODO GREET PARA MARIO PUEDO AGREGAR EL MÉTODO EN LA FUNCIÓN PERSON
+// // PERO LO MAS RECOMENDADO ES HACERLO CON LA PROPIEDAD PROTOTYPE DE LA FUNCIÓN PERSON
+// // QUE ALTERA EL CONSTRUCTOR AGREGANDO FUNCIONALIDADES QUE NOSOTROS NECESITEMOS
+//  Person.prototype.greet = function(){
+//     return `Ahora gracias a prototype ${this.name} puede usar también el método greet`
+//  }
+
+//  console.log(mario.greet())
+
+
+
+
+// EJEMPLO 7 CLASS (LAS CLASES SON CONJUNTOS DE MÉTODOS QUE PERMITEN DEFINIR UN OBJETO)
+// class Person{
+//     constructor(name, lastname){
+//         this.name = name,
+//         this.lastname = lastname
+//     }
+
+//     greet(){
+//         return `Hola ${this.name}`
+//     }
+// }
+
+// const person1 = new Person("Marco", "polo");
+// console.log(person1)
+// const person2 = new Person("largo", "Se cierra")
+// console.log(person2)
+// console.log(person1.greet())
+
+
+
+// EJEMPLO 8 PRINCIPIOS DE LA POO 
+// ASOSIACIÓN (RELACIÓN POR PROPIEDAD EN ESTE EJEMPLO), UNIR OBJETOS INDEPENDIENTES
+
+// class Person{
+//     constructor(name, lastname){
+//         this.name = name,
+//         this.lastname = lastname
+//     }
+// }
+
+// const jose = new Person("jose", "perez");
+// const carolina = new Person("carolina", "del rio")
+// carolina.parent = jose
+// console.log(jose)
+// console.log(carolina)
+
+// EJEMPLO 9 AGREGACIÓN
+const company = {
+    name: "CP Company",
+    employees: []
+}
+
+class Person{
+    constructor(name, lastname){
+        this.name = name;
+        this.lastname = lastname;
     }
 }
 
-const luigi = new Person("Luigi", "Bros");
-// CAMBIO DINAMICAMENTE DE PROPIEDADES EN OBJETOS
-luigi.lastname = "Bronx"
-const mario = new Person("Mario", "Bros");
-console.log(luigi.displayName());
-console.log(mario.displayName())
+const andres = new Person("Andres", "Ramirez");
+const carolina = new Person("Carolina", "Del Rio")
 
-// CAMBIO DINAMICAMENTE DE FUNCIONES EN OBJETOS
-luigi.greet = function(){
-    console.log(`Hola ${this.name}, este método solo lo puedes usar tú`)
-}
-
-luigi.greet()
-
-// SI QUIERO USAR EL MÉTODO GREET PARA MARIO PUEDO AGREGAR EL MÉTODO EN LA FUNCIÓN PERSON
-// PERO LO MAS RECOMENDADO ES HACERLO CON LA PROPIEDAD PROTOTYPE DE LA FUNCIÓN PERSON
-// QUE ALTERA EL CONSTRUCTOR AGREGANDO FUNCIONALIDADES QUE NOSOTROS NECESITEMOS
- Person.prototype.greet = function(){
-    return `Ahora gracias a prototype ${this.name} puede usar también el método greet`
- }
-
- console.log(mario.greet())
+company.employees.push(andres, carolina)
+console.log(company)
